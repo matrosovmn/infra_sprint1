@@ -1,0 +1,5 @@
+IP: 130.193.53.215;
+name_taski: https://zelemastudy.hopto.org;
+name_kittygram: https://zelema.ru;
+login: Gagarin;
+password: 1711_ZelemaYa!;
