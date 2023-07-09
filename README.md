@@ -184,7 +184,7 @@ sudo apt-get install -y nodejs
     mkdir media   
 ```
 ```
-    udo chown -R <имя_пользователя> /var/www/infra_sprint1/media/   
+    udo chown -R <имя_пользователя> /var/www/kittygram/media/   
 ```
 7. Открыть файл конфигурации веб-сервера
 ```
@@ -209,7 +209,7 @@ server {
     }
 
     location / {
-    root    /var/www/infra_sprint1;
+    root    /var/www/kittygram;
     index   index.html index.htm;
     try_files  $uri /index.html;
     }
