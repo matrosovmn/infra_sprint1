@@ -178,7 +178,7 @@ sudo apt-get install -y nodejs
    Результат сохранится в директории ..._/frontend/build/_.
    Далее (для корректной работы статики) в системную директорию веб-сервера _/var/www/_ скопировать содержимое папки _/frontend/build/_
 ```
-    sudo cp -r <имя_пользователя>/infra_sprint1/frontend/build/. /var/www/kittygram/   
+    sudo cp -r /home/yc-user/infra_sprint1/frontend/build/. /var/www/kittygram/   
 ```
 6. Создать папку для медиафайлов в директории веб-сервера, изменить права доступа
 ```
