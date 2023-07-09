@@ -112,7 +112,7 @@ STATIC_ROOT = BASE_DIR / 'static_backend'
             [Service]    
             User=<имя-пользователя-в-системе>  # (!) заменить на собственное
             WorkingDirectory=/home/<имя-пользователя>/infra_sprint1/backend/
-            ExecStart=/home/<имя-пользователя>/infra_sprint1/venv/bin/gunicorn --bind 0.0.0.0:8080 kittygram_backend.wsgi
+            ExecStart=/home/<имя-пользователя>/infra_sprint1/venv/bin/gunicorn --bind 0.0.0.0:8001 kittygram_backend.wsgi
     
             [Install]
             WantedBy=multi-user.target
