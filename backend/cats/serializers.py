@@ -1,11 +1,9 @@
 import base64
+import datetime as dt
+import webcolors
 
 from django.core.files.base import ContentFile
 from rest_framework import serializers
-import webcolors
-
-
-import datetime as dt
 
 from .models import Achievement, AchievementCat, Cat
 
@@ -64,20 +62,17 @@ class CatSerializer(serializers.ModelSerializer):
         return dt.datetime.now().year - obj.birth_year
     
     def create(self, validated_data):
-        if 'achievements' not in self.initial_data:
-            cat = Cat.objects.create(**validated_data)
-            return cat
-        else:
+        cat = Cat.objects.create(**validated_data)
+        if 'achievements' in self.initial_data:
             achievements = validated_data.pop('achievements')
-            cat = Cat.objects.create(**validated_data)
             for achievement in achievements:
                 current_achievement, status = Achievement.objects.get_or_create(
                     **achievement
-                    )
+                )
                 AchievementCat.objects.create(
                     achievement=current_achievement, cat=cat
-                    )
-            return cat
+                )
+        return cat
     
     def update(self, instance, validated_data):
         instance.name = validated_data.get('name', instance.name)
