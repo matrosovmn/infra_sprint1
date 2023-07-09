@@ -178,7 +178,7 @@ sudo apt-get install -y nodejs
 ```
 6. Создать папку для медиафайлов в директории веб-сервера, изменить права доступа
 ```
-    cd /var/www/infra_sprint1/   
+    cd /var/www/kittygram/   
 ```
 ```
     mkdir media   
