@@ -77,10 +77,14 @@ ALLOWED_HOSTS = ['127.0.0.1', '0.0.0.0', 'localhost', 'xxx.xxx.xxx.xxx']
 ```
    - поменять значение переменной STATIC_URL во избежание конфликта имён и добавить STATIC_ROOT
 ```
-STATIC_URL = 'static_backend'
+STATIC_URL = '/static_backend/'
 STATIC_ROOT = BASE_DIR / 'static_backend' 
 ```
-
+   - чтобы фотографии котиков отображались на сайте укажите путь до директории media
+```
+MEDIA_URL = '/media/'
+MEDIA_ROOT = '/var/www/kittygram/media/'
+```
 9. Создать суперюзера
 ```
     python manage.py createsuperuser

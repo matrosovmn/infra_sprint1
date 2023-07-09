@@ -2,12 +2,11 @@ from rest_framework import viewsets
 from rest_framework.pagination import PageNumberPagination
 
 from .models import Achievement, Cat
-
 from .serializers import AchievementSerializer, CatSerializer
 
 
 class CatViewSet(viewsets.ModelViewSet):
-    queryset = Cat.objects.order_by('id')
+    queryset = Cat.objects.all()
     serializer_class = CatSerializer
     pagination_class = PageNumberPagination
 
