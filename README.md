@@ -197,11 +197,11 @@ server {
     server_name server_name <публичный-IP-адрес> <доменное-имя>;
 
     location /api/ {
-        proxy_pass http://127.0.0.1:8000;
+        proxy_pass http://127.0.0.1:8001;
     }
 
     location /admin/ {
-        proxy_pass http://127.0.0.1:8000;
+        proxy_pass http://127.0.0.1:8001;
     }
 
     location /media/ {
