@@ -11,6 +11,7 @@ from .models import Achievement, AchievementCat, Cat
 class Hex2NameColor(serializers.Field):
     def to_representation(self, value):
         return value
+
     def to_internal_value(self, data):
         try:
             data = webcolors.hex_to_name(data)
@@ -43,13 +44,14 @@ class CatSerializer(serializers.ModelSerializer):
     color = Hex2NameColor()
     age = serializers.SerializerMethodField()
     image = Base64ImageField(required=False, allow_null=True)
-    image_url = serializers.SerializerMethodField('get_image_url', read_only=True)
+    image_url = serializers.SerializerMethodField(
+        'get_image_url', read_only=True)
 
     class Meta:
         model = Cat
         fields = (
-            'id', 'name', 'color', 'birth_year', 'achievements', 'owner', 'age',
-            'image', 'image_url'
+            'id', 'name', 'color', 'birth_year', 'achievements', 'owner',
+            'age', 'image', 'image_url'
             )
         read_only_fields = ('owner',)
 
@@ -57,12 +59,13 @@ class CatSerializer(serializers.ModelSerializer):
         if obj.image:
             return obj.image.url
         return None
-    
+
     def get_age(self, obj):
         return dt.datetime.now().year - obj.birth_year
-    
+
     def create(self, validated_data):
         cat = Cat.objects.create(**validated_data)
+
         if 'achievements' in self.initial_data:
             achievements = validated_data.pop('achievements')
             for achievement in achievements:
@@ -73,7 +76,7 @@ class CatSerializer(serializers.ModelSerializer):
                     achievement=current_achievement, cat=cat
                 )
         return cat
-    
+
     def update(self, instance, validated_data):
         instance.name = validated_data.get('name', instance.name)
         instance.color = validated_data.get('color', instance.color)
