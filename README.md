@@ -205,7 +205,7 @@ server {
     }
 
     location /media/ {
-        alias /var/www/infra_sprint1/media/;
+        alias /var/www/kittygram/media/;
     }
 
     location / {
