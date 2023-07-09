@@ -233,7 +233,7 @@ server {
 2. Скопировать его в системную директорию веб-сервера
 
 ```
-    sudo cp -r infra_sprint1/backend/static_backend/ /var/www/infra_sprint1/   
+    sudo cp -r infra_sprint1/backend/static_backend/ /var/www/kittygram/   
 ```
 
 ## Получить SSL-сертификат для вашего доменного имени при помощи certbot
